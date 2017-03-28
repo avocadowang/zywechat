@@ -79,9 +79,7 @@
                         document.getElementById("color"+i).style.backgroundColor="white";
                     }
                 }
-
                 check(num);
-
             };
 
             //改变图形
@@ -129,35 +127,35 @@
                 ["2017-01-16",1.6086],["2017-01-17",1.7086],["2017-01-18",2.1086],["2017-01-19",2.2086],["2017-01-20",2.6086]
             ];
 
-            jiazai(data1);
+            loadChart(data1,"2017-02-28 至 2017-03-28");
             function check(a){
                 if(a==1){
-                    jiazai(data1);
+                    loadChart(data1,"2017-02-28 至 2017-03-28");
                 }
 
                 if(a==2){
-                    jiazai(data2);
+                    loadChart(data2,"2017-01-28 至 2017-03-28");
                 }
 
                 if(a==3){
-                    jiazai(data3);
+                    loadChart(data3,"2016-09-28 至 2017-03-28");
                 }
 
                 if(a==4){
-                    jiazai(data4);
+                    loadChart(data4,"2016-03-28 至 2017-03-28");
                 }
 
                 if(a==5){
-                    jiazai(data5);
+                    loadChart(data5,"2015-09-28 至 2017-03-28");
                 }
 
             };
 
-            function jiazai(data){
+            function loadChart(data,dete){
 
                 myChart.setOption(option = {
                     title: {
-                        text: '             '+'2016-01-3 至 2016-06-09'
+                        text: '             '+dete
                     },
                     tooltip: {
                         trigger: 'axis'
@@ -179,16 +177,6 @@
                         boundaryGap:[0.01,0.01]
 
                     },
-                    //			        toolbox: {
-                    //			            left: 'center',
-                    //			            feature: {
-                    //			                dataZoom: {
-                    //			                    yAxisIndex: 'none'
-                    //			                },
-                    //			                restore: {},
-                    //			                saveAsImage: {}
-                    //			            }
-                    //			        },
                     dataZoom: [{
                         type: 'inside',
                         show:false
