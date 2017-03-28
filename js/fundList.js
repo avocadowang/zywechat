@@ -30,7 +30,7 @@ fundList.loadData = function (data) {
         //     +'</div>'
         //     +'</div>';
 
-        var listItem = '<div class="weui-form-preview listItem" style="border-bottom: 1px solid #D9D9D9;">'
+        var listItem = '<div class="weui-form-preview listItem" onclick="fundList.view('+data.list[i].id+')" style="border-bottom: 1px solid #D9D9D9;">'
                             +'<p class="fundName">'+data.list[i].name+'</p>'
                             +'<div class="weui-form-preview__bd middle"  style="border-bottom: 1px solid #D9D9D9;">'
                             +'<div class="mid">'
