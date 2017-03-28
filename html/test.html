@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>基金列表</title>
+    <link rel="stylesheet" href="../css/weui.css">
+    <script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../js/fundList.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+//        $(fundList.onload)
+    </script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .full {
+        position: absolute;
+        /*height: 100%;*/
+        width: 100%;
+        left: 0;
+        top: 0;
+        /*overflow: hidden;*/
+        background-color: #f2f2f2;
+    }
+    #fundList{
+        width: 100%;
+    }
+    .listItem{
+        margin-top: 10px;
+        width: 100%;
+        background-color: white;
+        border: 1px solid gray;
+    }
+    .fundName{
+        text-align: center;
+    }
+    .mid,.bot{
+        display: inline-block;
+        padding: 10px 0 10px 0;
+        width: 45%;
+        text-align: center;
+    }
+    .newWorth{
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .decline{
+        color: red;
+    }
+</style>
+<body class="full">
+<section id="fundList">
+    <div class="weui-form-preview">
+        <div class="weui-form-preview__hd" style="text-align: left">
+           <strong>招商现金增值货币A</strong>
+        </div>
+        <div class="weui-form-preview__bd">
+            <p>
+
+            </p>
+            <p>
+                <label class="weui-form-preview__label">标题标题</label>
+                <span class="weui-form-preview__value">名字名字名字</span>
+            </p>
+            <p>
+                <label class="weui-form-preview__label">标题标题</label>
+                <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
+            </p>
+        </div>
+        <!--<div class="weui-form-preview__ft">-->
+            <!--<a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>-->
+            <!--<a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>-->
+        <!--</div>-->
+    </div>
+</section>
+</body>
+</html>

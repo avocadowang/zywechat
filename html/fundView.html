@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<title>基金详情</title>
+		<link rel="stylesheet" href="../css/weui.css">
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/echarts.common.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/fundList.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			.full {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				background-color: #f2f2f2;
+			}
+			
+			#fund_intro {
+				width: 100%;
+			}
+			
+			#fund_view {
+				width: 100%;
+				margin-top: 20px;
+			}
+				.listItem{
+				margin-top: 10px;
+				width: 100%;
+				background-color: white;
+				border: 1px solid gray;
+			}
+			.fundName{
+				text-align: center;
+			}
+			.mid,.bot{
+				display: inline-block;
+				padding: 10px 0 10px 0;
+				width: 45%;
+				text-align: center;
+			}
+			.newWorth{
+				font-weight: bold;
+				font-size: 15px;
+			}
+			.decline{
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body class="full">
+		<section id="fund_intro">
+			<div class="listItem">
+				<p class="fundName">name</p>
+				<div class="middle" style="border-bottom: 1px solid gray;">
+					<div class="mid_lef mid">
+						<p class="newWorth">1.0245</p>
+						<p>最新净值(元)</p>
+					</div>
+					<div class="mid_rig mid">
+						<p class="decline">0.03</p>
+						<p>日涨跌幅%</p>
+					</div>
+				</div>
+				<div class="bottom">
+					<div class="bot_lef bot">基金代码:00001</div>
+					<div class="bot_rig bot">低风险</div>
+				</div>
+			</div>
+		</section>
+		<section id="fund_view">
+			<!--tab切换-->
+			<div class="weui-tab">
+				<div class="weui-navbar">
+					<div class="weui-navbar__item">
+						一月
+					</div>
+					<div class="weui-navbar__item  weui-bar__item_on">
+						季度
+					</div>
+					<div class="weui-navbar__item">
+						半年
+					</div>
+					<div class="weui-navbar__item">
+						一年
+					</div>
+					<div class="weui-navbar__item">
+						全部
+					</div>
+				</div>
+				<div class="weui-tab__panel">
+					<div>
+						<div id="main" style="width: 90%;height:300px;margin: 0 auto;margin-top: 50px;"></div>
+					</div>
+			</div>
+
+		</section>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('main'));
+			$.get('/zywechat/json/example.json', function(data) {
+				myChart.setOption(option = {
+					title: {
+						text: '净值走势图'
+					},
+					tooltip: {
+						trigger: 'axis'
+					},
+					xAxis: {
+						data: data.map(function(item) {
+							return item[0];
+						})
+					},
+					yAxis: {
+						splitLine: {
+							show: false
+						}
+					},
+//								        toolbox: {
+//								            left: 'center',
+//								            feature: {
+//								                dataZoom: {
+//								                    yAxisIndex: 'none'
+//								                },
+//								                restore: {},
+//								                saveAsImage: {}
+//								            }
+//								        },
+					dataZoom: [{
+						startValue: '2014-06-01'
+					}, {
+						type: 'inside',
+					}
+					],
+					visualMap: {
+						top: 10,
+						right: 10,
+						pieces: [{
+							gt: 0,
+							lte: 50,
+							color: '#096'
+						}, {
+							gt: 50,
+							lte: 100,
+							color: '#ffde33'
+						}, {
+							gt: 100,
+							lte: 150,
+							color: '#ff9933'
+						}, {
+							gt: 150,
+							lte: 200,
+							color: '#cc0033'
+						}, {
+							gt: 200,
+							lte: 300,
+							color: '#660099'
+						}, {
+							gt: 300,
+							color: '#7e0023'
+						}],
+						outOfRange: {
+							color: '#999'
+						}
+					},
+					series: {
+						name: '净值走势图',
+						type: 'line',
+						data: data.map(function(item) {
+							return item[1];
+						}),
+						markLine: {
+							silent: true,
+							data: [{
+								yAxis: 50
+							}, {
+								yAxis: 100
+							}, {
+								yAxis: 150
+							}, {
+								yAxis: 200
+							}, {
+								yAxis: 300
+							}]
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>
