@@ -36,10 +36,18 @@
         margin-top: 10px;
         width: 100%;
         background-color: white;
-        border: 1px solid gray;
+        overflow: hidden;
     }
     .fundName{
         text-align: center;
+        font-weight: bold;
+        padding: 7px 15px;
+        border-bottom: 1px solid #D9D9D9;
+    }
+    .middle,.bottom{
+        padding: 0;
+        width: 96%;
+        float: right;
     }
     .mid,.bot{
         display: inline-block;
@@ -49,35 +57,34 @@
     }
     .newWorth{
         font-weight: bold;
-        font-size: 15px;
+        font-size: 20px;
+        color: black;
     }
     .decline{
         color: red;
+        font-size: 20px;
     }
 </style>
 <body class="full">
 <section id="fundList">
-    <div class="weui-form-preview">
-        <div class="weui-form-preview__hd" style="text-align: left">
-           <strong>招商现金增值货币A</strong>
+    <div class="weui-form-preview listItem" style="border-bottom: 1px solid #D9D9D9;">
+           <p class="fundName">招商现金增值货币A</p>
+        <div class="weui-form-preview__bd middle"  style="border-bottom: 1px solid #D9D9D9;">
+            <div class="mid">
+                <p class="weui-form-preview__value newWorth">1.0004</p>
+                <p class="weui-form-preview__value">最新净值</p>
+            </div>
+            <div  class="mid">
+                <p class="weui-form-preview__value decline">0.03</p>
+                <p class="weui-form-preview__value">日涨跌幅</p>
+            </div>
         </div>
-        <div class="weui-form-preview__bd">
-            <p>
 
-            </p>
-            <p>
-                <label class="weui-form-preview__label">标题标题</label>
-                <span class="weui-form-preview__value">名字名字名字</span>
-            </p>
-            <p>
-                <label class="weui-form-preview__label">标题标题</label>
-                <span class="weui-form-preview__value">很长很长的名字很长很长的名字很长很长的名字很长很长的名字很长很长的名字</span>
-            </p>
+        <!--bottom-->
+        <div class="weui-form-preview__bd bottom ">
+            <div class="bot_lef bot">基金代码:00001</div>
+            <div class="bot_rig bot">低风险</div>
         </div>
-        <!--<div class="weui-form-preview__ft">-->
-            <!--<a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>-->
-            <!--<a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">操作</a>-->
-        <!--</div>-->
     </div>
 </section>
 </body>
