@@ -28,7 +28,9 @@
 .intro_con {
     display: inline-block;
 }
-
+intro_text>p{
+    font-size: 17px;
+}
 #load_auth {
     margin-top: 20px;
 }
@@ -78,4 +80,8 @@
 .decline{
     color: red;
     font-size: 2em;
+}
+.unbind{
+    width: 50%;
+
 }
